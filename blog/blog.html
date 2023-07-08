@@ -100,7 +100,65 @@
       </div>
     </section>
  
-    
+<section class="u-clearfix u-section-1" id="sec-31c9">
+  <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-blog u-expanded-width u-repeater u-repeater-1" id="noticias-container"></div>
+  </div>
+</section>
+
+<script>
+  // Cargar noticias desde el archivo JSON
+  fetch('noticias.json')
+    .then(response => response.json())
+    .then(data => {
+      const noticiasContainer = document.getElementById('noticias-container');
+      const noticias = data.noticias;
+
+      noticias.forEach(noticia => {
+        const blogPost = document.createElement('div');
+        blogPost.className = 'u-blog-post u-container-style u-repeater-item u-white';
+
+        const containerLayout = document.createElement('div');
+        containerLayout.className = 'u-container-layout u-similar-container u-valign-top u-container-layout-1';
+
+        const blogPostHeader = document.createElement('h4');
+        blogPostHeader.className = 'u-blog-control u-text u-text-1';
+
+        const postLink = document.createElement('a');
+        postLink.className = 'u-post-header-link';
+        postLink.href = noticia.enlace;
+        postLink.textContent = noticia.titulo;
+
+        const blogPostImage = document.createElement('img');
+        blogPostImage.className = 'u-blog-control u-expanded-width u-image u-image-default u-image-1';
+        blogPostImage.src = noticia.imagen;
+        blogPostImage.alt = '';
+
+        const blogPostContent = document.createElement('div');
+        blogPostContent.className = 'u-blog-control u-post-content u-text u-text-2 fr-view';
+        blogPostContent.textContent = noticia.contenido;
+
+        const blogPostReadMore = document.createElement('a');
+        blogPostReadMore.className = 'u-blog-control u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1';
+        blogPostReadMore.href = noticia.enlace;
+        blogPostReadMore.textContent = 'Read More';
+
+        // Agregar elementos al contenedor de noticias
+        blogPostHeader.appendChild(postLink);
+        containerLayout.appendChild(blogPostHeader);
+        containerLayout.appendChild(blogPostImage);
+        containerLayout.appendChild(blogPostContent);
+        containerLayout.appendChild(blogPostReadMore);
+        blogPost.appendChild(containerLayout);
+        noticiasContainer.appendChild(blogPost);
+      });
+    })
+    .catch(error => {
+      console.error('Error al cargar las noticias:', error);
+    });
+</script>
+
+	  
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-60e0"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Carrera Tecnologias de la Informacion <br>Copyright © 2023
