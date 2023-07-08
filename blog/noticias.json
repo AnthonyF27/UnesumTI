@@ -16,13 +16,13 @@
       "titulo": "Encabezado de la Publicación 2",
       "imagen": "../images/8ad73f3c.jpeg",
       "contenido": "Ejemplo de texto pequeño. Lorem ipsum dolor sit amet.",
-      "enlace": "../blog/enviar-2.html"
+      "enlace": ""
     },
     {
       "titulo": "Encabezado de la Publicación 3",
       "imagen": "../images/8ad73f3c.jpeg",
       "contenido": "Ejemplo de texto pequeño. Lorem ipsum dolor sit amet.",
-      "enlace": "../blog/enviar-2.html"
+      "enlace": ""
     }
   ]
 }
